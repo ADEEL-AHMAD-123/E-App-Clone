@@ -1,32 +1,22 @@
-const express = require("express");
-const router = express.Router();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+// Process payment
+exports.processPayment = catchAsyncErrors(async (req, res, next) => {
+  const myPayment = await stripe.paymentIntents.create({
+    amount: req.body.amount,
+    currency: "euro",
+    metadata: {
+      company: "At the Doorz",
+    },
+  });
+  res.status(200).json({
+    success: true,
+    client_secret: myPayment.client_secret,
+  });
+});
 
-router.post(
-  "/process",
-  catchAsyncErrors(async (req, res, next) => {
-    const myPayment = await stripe.paymentIntents.create({
-      amount: req.body.amount,
-      currency: "euro",
-      metadata: {
-        company: "At the Doorz",
-      },
-    });
-    res.status(200).json({
-      success: true,
-      client_secret: myPayment.client_secret,
-    });
-  })
-);
-
-router.get(
-  "/stripeapikey",
-  catchAsyncErrors(async (req, res, next) => {
-    res.status(200).json({ stripeApikey: process.env.STRIPE_API_KEY });
-  })
-);
-
-
-module.exports = router;
+// Get Stripe API key
+exports.getStripeApiKey = catchAsyncErrors(async (req, res, next) => {
+  res.status(200).json({ stripeApikey: process.env.STRIPE_API_KEY });
+});

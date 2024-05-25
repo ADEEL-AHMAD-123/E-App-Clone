@@ -26,16 +26,16 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 }
 
 // import routes
-const user = require("./controller/user");
-const shop = require("./controller/shop");
-const product = require("./controller/product");
-const event = require("./controller/event");
-const coupon = require("./controller/coupounCode");
-const payment = require("./controller/payment");
-const order = require("./controller/order");
-const conversation = require("./controller/conversation");
-const message = require("./controller/message");
-const withdraw = require("./controller/withdraw");
+const user = require("./routes/userRoutes");
+const shop = require("./routes/shopRoutes");
+const product = require("./routes/productRoutes");
+const event = require("./routes/eventRoutes");
+const coupon = require("./routes/couponRoutes");
+const payment = require("./routes/paymentRoutes");
+const order = require("./routes/orderRoutes");
+const conversation = require("./routes/conversationRoutes");
+const message = require("./routes/messageRoutes");
+const withdraw = require("./routes/withdrawRoutes");
 
 app.use("/api/v2/user", user);
 app.use("/api/v2/conversation", conversation);
