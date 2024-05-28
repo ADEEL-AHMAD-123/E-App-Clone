@@ -21,6 +21,8 @@ import {
   OrderDetailsPage,
   TrackOrderPage,
   UserInbox,
+  TeamPage,
+  ContactUs,  
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -109,6 +111,9 @@ const App = () => {
         <Route path="/best-selling" element={<BestSellingPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/team" element={<TeamPage/>} />
+        <Route path="/contact-us" element={<ContactUs/>} />
+
         <Route
           path="/checkout"
           element={
@@ -319,7 +324,7 @@ const App = () => {
       </Routes>
       <ToastContainer
         position="bottom-center"
-        autoClose={5000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

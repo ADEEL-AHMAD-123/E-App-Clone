@@ -11,8 +11,11 @@ const AllEvents = () => {
   useEffect(() => {
    axios.get(`${server}/event/admin-all-events`, {withCredentials: true}).then((res) =>{
     setEvents(res.data.events);
+    alert("hi")
+console.log('kjjh');
    })
   }, []);
+
 
   const columns = [
     { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },

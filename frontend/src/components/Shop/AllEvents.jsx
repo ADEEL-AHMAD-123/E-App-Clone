@@ -10,14 +10,17 @@ import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
 
 const AllEvents = () => {
-  const { events, isLoading } = useSelector((state) => state.events);
+  const { allEvents, isLoading } = useSelector((state) => state.events);
   const { seller } = useSelector((state) => state.seller);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllEventsShop(seller._id));
+   
   }, [dispatch]);
+
+  console.log('jhj',allEvents[0].stock);
 
   const handleDelete = (id) => {
     dispatch(deleteEvent(id));
@@ -97,8 +100,9 @@ const AllEvents = () => {
 
   const row = [];
 
-  events &&
-  events.forEach((item) => {
+  allEvents &&
+  allEvents.forEach((item) => {
+
       row.push({
         id: item._id,
         name: item.name,

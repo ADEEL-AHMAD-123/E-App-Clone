@@ -19,6 +19,7 @@ const SellerActivationPage = () => {
             console.log(res);
           })
           .catch((err) => {
+            console.log('error occured',err);
             setError(true);
           });
       };

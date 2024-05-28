@@ -16,7 +16,7 @@ router.post("/create-event", isSeller, createEvent);
 router.get("/get-all-events", getAllEvents);
 
 // Get all events of a shop
-router.get("/get-all-events/:id", isSeller, getAllEventsOfShop);
+router.get("/get-all-events/:id", getAllEventsOfShop);
 
 // Delete event of a shop
 router.delete("/delete-shop-event/:id", isSeller, deleteEventOfShop);

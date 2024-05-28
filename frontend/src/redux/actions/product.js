@@ -16,6 +16,7 @@ export const createProduct =
   ) =>
   async (dispatch) => {
     try {
+      console.log(name, description,category, tags, originalPrice)
       dispatch({
         type: "productCreateRequest",
       });
@@ -30,7 +31,7 @@ export const createProduct =
         discountPrice,
         stock,
         shopId,
-        images,
+        images,{ withCredentials: true }
       );
       dispatch({
         type: "productCreateSuccess",
