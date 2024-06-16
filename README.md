@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-@copyright by Abubakar
+@copyright by ADEEL AHMAD 
 =======
 # atdoorz
 >>>>>>> origin/main
